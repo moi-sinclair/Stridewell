@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="no-referrer" name="referrer"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>
+   Stridewell — Made to Move
+  </title>
+<link href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%231b3028%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-size=%2730%27 text-anchor=%27middle%27 fill=%27%23e6c98c%27 font-family=%27Arial%27 font-weight=%27bold%27%3ES%C3%97%3C/text%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/><meta content="Stridewell is a fictional footwear storefront demo built for learning and experimentation." name="description"/></head>
+<body>
+<div id="intro">
+<div>
+<div id="in-n">
+     000
+    </div>
+<div id="in-t">
+     STRIDEWELL · MADE TO MOVE
+    </div>
+</div>
+<button id="skip">
+    Skip
+   </button>
+</div>
+<div id="wipe">
+</div>
+<div id="pgb">
+</div>
+<div class="welcome-overlay" hidden="" id="welcomeDemo">
+<section aria-labelledby="welcomeTitle" aria-modal="true" class="welcome-card" role="dialog">
+<div class="tg">
+     A quick note from the studio
+    </div>
+<h2 id="welcomeTitle">
+     Find your stride.
+    </h2>
+<p>
+     You probably didn't read the README.md, so here's the short version: this is a fully explorable mock storefront. You can create a local account, shop, test checkout, and explore the admin control room. No real money moves.
+    </p>
+<div class="welcome-actions">
+<button class="btn" id="welcomeGuide">
+      Show me how to use it
+     </button>
+<button class="btn o" id="welcomeSkip">
+      I'll ignore this. I'll discover every feature through exploration.
+     </button>
+</div>
+</section>
+</div>
+<div id="site">
+<nav aria-label="Main navigation">
+<div class="w">
+<div class="logo" data-go="home">
+<i>
+       S×
+      </i>
+<span class="wordmark">
+       Stridewell
+      </span>
+</div>
+<div aria-label="Shop navigation" class="lk">
+<a data-go="home" href="#home">
+       Home
+      </a>
+<a data-go="shoes" href="#shoes">
+       Footwear
+      </a>
+<a data-go="wear" href="#wear">
+       Listings
+      </a>
+<a data-go="about" href="#about">
+       Our studio
+      </a>
+<a data-go="guide" href="#guide">
+       How to use
+      </a>
+</div>
+<div style="display:flex;gap:6px;align-items:center">
+<button aria-label="Search" class="ib" id="sbtn">
+       ⌕
+      </button>
+<select class="ib" id="cu">
+<option>
+        USD
+       </option>
+<option>
+        EUR
+       </option>
+<option>
+        GBP
+       </option>
+<option>
+        GHS
+       </option>
+</select>
+<button aria-label="Theme" class="ib" id="tm">
+       ◐
+      </button>
+<div class="account-menu" id="accountMenu">
+<button class="ib account-menu-trigger" id="accountMenuTrigger" type="button" aria-haspopup="true" aria-expanded="false">
+       Account <span class="menu-chevron" aria-hidden="true">⌄</span>
+       <span class="role-badge" hidden="" id="roleBadge"></span>
+</button>
+<div class="account-menu-panel" id="accountMenuPanel" role="menu" aria-label="Account options">
+<button type="button" data-go="dash" role="menuitem">Customer account</button>
+<button type="button" data-go="admin" role="menuitem">Admin control room</button>
+</div>
+</div>
+<button class="ib" id="cb">
+       Bag
+       <span id="cc">
+        0
+       </span>
+</button>
+</div>
+</div>
+</nav>
+<main>
+<div class="pg" id="home">
+<div class="w hero">
+<div id="big">
+       DROP
+      </div>
+<div class="pnl">
+<div class="tg">
+        Preorder · ships Dec 2026
+       </div>
+<h1 id="hn">
+</h1>
+<p class="mut" id="hd">
+</p>
+<div class="pre">
+<span class="dot">
+</span>
+<span>
+<b id="pc">
+          0
+         </b>
+         people have preordered ·
+         <span id="pl">
+          0
+         </span>
+         left of 2,400
+        </span>
+</div>
+<div class="bar">
+<i id="pb">
+</i>
+</div>
+<div class="cd" id="cd">
+<div>
+<b>
+          00
+         </b>
+<span>
+          Days
+         </span>
+</div>
+<div>
+<b>
+          00
+         </b>
+<span>
+          Hrs
+         </span>
+</div>
+<div>
+<b>
+          00
+         </b>
+<span>
+          Min
+         </span>
+</div>
+<div>
+<b>
+          00
+         </b>
+<span>
+          Sec
+         </span>
+</div>
+</div>
+<div class="sw" id="hs">
+</div>
+<button class="btn" id="hb">
+        Preorder —
+        <span id="hp">
+</span>
+</button>
+<button class="btn o" data-go="shoes">
+        All footwear
+       </button>
+</div>
+<div class="stage" id="st">
+<div class="rg">
+</div>
+<div id="shd">
+</div>
+<img alt="" draggable="false" id="ho" style="opacity:0"/>
+<div id="hw">
+<img alt="" draggable="false" id="hi"/>
+</div>
+<div class="ang" id="ang">
+</div>
+<div class="hint">
+        Drag to lift · right-click to turn · double-click to spin · use the angle controls for perspective tilts
+       </div>
+</div>
+</div>
+<section>
+<div class="w">
+<p class="mf" id="mf">
+        We make shoes slowly, in numbered runs, so every pair feels made for exactly one person. No restocks. No regrets. Just Drop 01.
+       </p>
+</div>
+</section>
+<section>
+<div class="w">
+<div class="tg">
+        Why Stridewell
+       </div>
+<h2>
+        Built slowly. Dropped fast.
+       </h2>
+<div class="ft" id="ft" style="margin-top:30px">
+</div>
+</div>
+</section>
+<section style="background:var(--card)">
+<div class="w">
+<div class="tg">
+        The numbers
+       </div>
+<div class="ft" id="ns" style="margin-top:24px">
+</div>
+</div>
+</section>
+<section>
+<div class="w">
+<div class="tg">
+        Featured
+       </div>
+<h2>
+        Seven pairs. One chance.
+       </h2>
+<div class="gr" id="hg" style="margin-top:30px">
+</div>
+</div>
+</section>
+<section id="insider">
+<div class="w">
+<div class="tg">
+        Insider Info
+       </div>
+<h2>
+        What’s happening
+       </h2>
+<div class="ft" id="ins" style="margin-top:24px">
+</div>
+</div>
+</section>
+<section>
+<div class="w">
+<div class="nl">
+<h2>
+         Get the next drop first
+        </h2>
+<p>
+         Get product drops and studio updates. This demo saves your signup in this browser; it does not send campaign emails.
+        </p>
+<form class="nf">
+<input aria-label="Email" placeholder="you@email.com" required="" type="email"/>
+<button class="btn">
+          Subscribe
+         </button>
+</form>
+</div>
+</div>
+</section>
+</div>
+<div class="pg" id="shoes">
+<div class="w" style="padding-top:50px">
+<div class="tg">
+       Footwear
+      </div>
+<h2>
+       Drop 01 — Stride 1
+      </h2>
+<div class="fl" data-k="shoe">
+<button class="on" data-f="all">
+        All
+       </button>
+<button data-f="leather">
+        Leather
+       </button>
+<button data-f="canvas">
+        Canvas
+       </button>
+<button data-f="knit">
+        Knit
+       </button>
+<select aria-label="Sort">
+<option value="0">
+         Featured
+        </option>
+<option value="1">
+         Price: low
+        </option>
+<option value="2">
+         Price: high
+        </option>
+</select>
+</div>
+<div class="gr" id="sg">
+</div>
+</div>
+</div>
+<div class="pg" id="wear">
+<div class="w" style="padding-top:50px">
+<div class="tg">
+       Listings
+      </div>
+<h2>
+       Listings with a little more personality
+      </h2>
+<p class="mut" style="max-width:58ch">
+       Dresses, relaxed trousers and everyday pieces. Product photography is illustrative; this is a learning storefront prototype.
+      </p>
+<div class="fl" data-k="wear">
+<button class="on" data-f="all">
+        All
+       </button>
+<button data-f="bottoms">
+        Pants &amp; bottoms
+       </button>
+<button data-f="dresses">
+        Dresses
+       </button>
+<button data-f="tops">
+        Tops
+       </button>
+<button data-f="acc">
+        Accessories
+       </button>
+<select aria-label="Sort">
+<option value="0">
+         Featured
+        </option>
+<option value="1">
+         Price: low
+        </option>
+<option value="2">
+         Price: high
+        </option>
+</select>
+</div>
+<div class="gr" id="wg">
+</div>
+</div>
+</div>
+<div class="pg" id="about">
+<div class="w" style="padding:60px 24px">
+<div class="tg">
+       The studio
+      </div>
+<div class="nm">
+       Slow craft.
+       <br/>
+       Loud steps.
+      </div>
+<p class="mut" style="max-width:56ch;font-size:18px">
+       Stridewell is a fictional footwear atelier invented for learning AI-assisted development. Tone: warm paper, deep green, brass. Voice: calm, confident, a little cheeky. Mark: the S× monogram.
+      </p>
+<div class="ft" id="vl" style="margin-top:30px">
+</div>
+<section style="padding:34px 0 10px">
+<div class="tg">
+        Behind the pair
+       </div>
+<h2>
+        Made by hand. Made to move.
+       </h2>
+<p class="mut" style="max-width:58ch">
+        A short look at traditional leather shoemaking. This is licensed stock footage used for the demo, not footage from a real Stridewell workshop.
+       </p>
+<div class="studio-video-frame" style="position:relative;overflow:hidden;border-radius:18px;aspect-ratio:16/9;background:#111">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" loading="lazy" src="https://player.vimeo.com/video/836938238?autoplay=1&amp;muted=1&amp;title=0&amp;byline=0&amp;portrait=0" style="position:absolute;inset:0;width:100%;height:100%;border:0" title="How shoes are made · Shoemakers Academy">
+</iframe>
+</div>
+<small class="mut">
+        Video:
+        <a href="https://vimeo.com/836938238" rel="noopener" target="_blank">
+         How Shoes are Made · Shoemakers Academy
+        </a>
+</small>
+</section>
+</div>
+</div>
+<div class="pg" id="guide">
+<div class="w guide-wrap">
+<div class="tg">
+       The field guide · Demo help
+      </div>
+<h2>
+       Make yourself at home.
+      </h2>
+<p class="mut guide-lead">
+       A quick tour of the Stridewell storefront. Everything here is a safe, browser-based demonstration: explore freely, test the flows, and remember that no real money or messages are sent.
+      </p>
+<div class="guide-grid">
+<article class="guide-card">
+<span>
+         01 · DISCOVER
+        </span>
+<h3>
+         Browse footwear and apparel
+        </h3>
+<p>
+         Use the top navigation to switch between footwear, apparel, the studio page and this guide. Filter shoes by material and apparel by category, sort by price, and open a product for its details. Product photography is illustrative and credited where available.
+        </p>
+</article>
+<article class="guide-card">
+<span>
+         02 · FIND IT
+        </span>
+<h3>
+         Search, wishlist and recently viewed
+        </h3>
+<p>
+         Use the magnifying-glass search to find items by name or details. Tap a heart to add or remove a favourite. Your dashboard collects saved wishlist items and recently viewed products. These lists are saved in this browser, not synced to an account server.
+        </p>
+</article>
+<article class="guide-card">
+<span>
+         03 · YOUR BAG
+        </span>
+<h3>
+         Sizes, quantities and stock
+        </h3>
+<p>
+         Choose a size before adding a product. The bag shows selected items, sizes, quantities, subtotals and the total. Shoe stock is tracked per size: available counts update after a successful mock checkout, and sold-out sizes cannot be selected. Stock is simulated locally, so two different browsers do not share a live inventory.
+        </p>
+</article>
+<article class="guide-card">
+<span>
+         04 · CHECKOUT
+        </span>
+<h3>
+         Test a preorder
+        </h3>
+<p>
+         You must be signed in as a customer to add products, preorder or check out. Enter demo contact and shipping details. Use card number
+         <b>
+          4242 4242 4242 4242
+         </b>
+         , any future expiry date and any 3-digit CVC to test the mock payment. No charge, shipment or real payment processing occurs. Promo code
+         <b>
+          STRIDE10
+         </b>
+         applies the demo discount.
+        </p>
+</article>
+<article class="guide-card">
+<span>
+         05 · ACCOUNT
+        </span>
+<h3>
+         Create, sign in and reset
+        </h3>
+<p>
+         The first sign-in attempt with a new email creates a browser-local account; later sign-ins need the same password. Passwords must be at least six characters.
+         <b>
+          Remember me
+         </b>
+         is checked by default and saves the email/password for autofill on this browser. Uncheck it to remove the saved autofill credentials; your account itself remains and you can still sign in by typing them.
+         <b>
+          Forgot password?
+         </b>
+         deletes only the account record for the email currently entered, allowing you to create it again with a new password. It does not wipe the whole site's storage or erase existing orders, cart, stock or settings. This is a demo reset, not verified identity recovery.
+        </p>
+</article>
+<article class="guide-card">
+<span>
+         06 · DASHBOARD
+        </span>
+<h3>
+         Your customer area
+        </h3>
+<p>
+         After signing in, open Account to view your orders with live status tracking, wishlist and recently viewed products. Sign out from the dashboard to end the customer session. Your account record stays in this browser so you can return later.
+        </p>
+</article>
+<article class="guide-card">
+<span>
+         07 · PERSONALISE
+        </span>
+<h3>
+         Store controls and newsletter
+        </h3>
+<p>
+         Switch the currency selector between USD, EUR, GBP and GHS, toggle the light/dark theme, and use the newsletter form to add a demo subscriber. After signup, a confirmation explains that your address was saved locally; no automated campaign is sent. Admin can view/export subscribers or prepare an email draft. The countdown and preorder progress are demo storefront elements.
+        </p>
+</article>
+<article class="guide-card">
+<span>
+         08 · ADMIN
+        </span>
+<h3>
+         Explore the control room
+        </h3>
+<p>
+         Open Admin in the footer. Demo credentials: username
+         <b>
+          admin
+         </b>
+         , password
+         <b>
+          stridewell2026
+         </b>
+         . The dashboard includes order management/status controls, customer/order views, CSV export, product visibility and pricing, insider posts, newsletter subscribers, countdown settings and an active-admin-browser count. The count only sees sessions sharing this exact browser storage/site origin.
+        </p>
+</article>
+<article class="guide-card">
+<span>
+         09 · THE STUDIO
+        </span>
+<h3>
+         Behind the pair
+        </h3>
+<p>
+         The studio page includes a shoe-making video sourced from Pexels. It is stock footage, not a recording of a real Stridewell factory. Use the source link beside the video to view the original clip and its license details.
+        </p>
+</article>
+</div>
+<section class="guide-note" id="explorerProgress">
+<b>
+        Your exploration checklist
+       </b>
+<p>
+        As you use the site, completed actions tick themselves off here. It is saved in this browser.
+       </p>
+<div class="feature-checklist" id="featureChecklist">
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+<button class="ib" id="resetChecklist" type="button">
+         Reset checklist
+        </button>
+
+</div>
+
+</section>
+<section class="guide-note" id="faq">
+<b>
+        Frequently asked questions
+       </b>
+<details>
+<summary>
+         Does checkout charge a real card?
+        </summary>
+<p>
+         No. Checkout is a front-end simulation. Use the test card shown above. No payment provider is connected.
+        </p>
+</details>
+<details>
+<summary>
+         Why do I need an account to shop?
+        </summary>
+<p>
+         The demo requires a customer account before adding items, preordering or checkout. It keeps a simple local customer identity for the dashboard and order history.
+        </p>
+</details>
+<details>
+<summary>
+         Why can't an admin buy products?
+        </summary>
+<p>
+         Admin mode locks shopping so the person managing the demo cannot reserve the limited stock. Sign out of Admin to return to customer mode.
+        </p>
+</details>
+<details>
+<summary>
+         Why doesn't my order show on another device?
+        </summary>
+<p>
+         Each browser profile stores its own data. There is no shared backend or database connecting devices.
+        </p>
+</details>
+<details>
+<summary>
+         Does the newsletter send emails?
+        </summary>
+<p>
+         No automated campaign is sent. Subscribe stores your email in this browser's demo list. Admin can view/export that list and prepare an email draft in the email app.
+        </p>
+</details>
+<details>
+<summary>
+         What happens if I forget my password?
+        </summary>
+<p>
+         Use the demo reset button on the account page. It deletes that one local account record so you can create it again. It is not secure identity verification.
+        </p>
+</details>
+<details>
+<summary>
+         Why don't the shoe angle buttons show the real heel or sole?
+        </summary>
+<p>
+         The product viewer uses one image and applies perspective transforms. It cannot create a true photograph of the heel, top or sole, so the controls are labelled as visual tilts.
+        </p>
+</details>
+</section>
+<div class="guide-note">
+<b>
+        Admin shopping restriction
+       </b>
+<p>
+        This is intentional, not a bug: while the ADMIN badge is active, adding to bag, preordering and checkout are blocked. Sign out of Admin to remove the badge and restore normal customer shopping. Admins should not take limited stock from their own demo store.
+       </p>
+</div>
+<div class="guide-note">
+<b>
+        What Remember me actually does
+       </b>
+<p>
+        When checked, the demo stores a convenience copy of the email and password so the login form can autofill next time. When unchecked, that convenience copy is removed and the form will not autofill. The account record still exists, so unchecking it does not log you out, delete your account or reset your password. Because browser storage is readable by scripts and anyone with access to the browser profile, use only a made-up password.
+       </p>
+</div>
+<div class="guide-note">
+<b>
+        Important demo limits
+       </b>
+<p>
+        Accounts, passwords, login state, cart, wishlist, stock, orders, settings and newsletter entries are stored in localStorage in this browser only. They do not sync across devices or separate browsers. Passwords and admin credentials are visible in browser storage and page source, so never reuse real passwords or enter real customer/payment data. Inventory is a local simulation, not shared live stock. Payments, fulfilment, secure authentication and automated email delivery are not connected. Clearing this site's browser storage resets the local demo data.
+       </p>
+</div>
+<button class="btn" data-go="shoes">
+       Explore the collection
+      </button>
+</div>
+</div>
+<div class="pg" id="dash">
+<div class="w" style="padding:50px 24px">
+<form class="fm" id="dl" style="max-width:420px;margin:40px auto">
+<h2>
+        Your Stridewell account
+       </h2>
+<p class="mut">
+        Create a demo account or sign in with the same email and password on this browser. Your login is saved locally for this browser only.
+       </p>
+<label for="aname">
+        Name
+       </label>
+<input autocomplete="name" id="aname" maxlength="80" name="name" placeholder="Your name"/>
+<label for="le">
+        Email address
+       </label>
+<input autocomplete="email" id="le" name="email" placeholder="you@email.com" required="" type="email"/>
+<label for="lpw">
+        Password
+       </label>
+<div style="display:flex;gap:8px;align-items:center">
+<input autocomplete="current-password" id="lpw" minlength="6" name="password" placeholder="At least 6 characters" required="" style="flex:1;min-width:0" type="password"/>
+<button aria-label="Show password" class="ib" id="togglePassword" type="button">
+         Show
+        </button>
+</div>
+<label style="display:flex;align-items:center;gap:9px;margin:10px 0">
+<input checked="" id="rememberLogin" style="width:auto" type="checkbox"/>
+        Remember my email and password on this browser
+       </label>
+<button class="btn" type="submit">
+        Create account / Sign in
+       </button>
+<button class="btn o" id="forgotPassword" type="button">
+        Forgot password? Reset demo account
+       </button>
+<small class="mut">
+        If this email is new, an account is created. If it already exists, enter its password to sign in. Remember me only controls autofill; unchecking it does not delete your account. This is a local demo, not secure authentication.
+       </small>
+<p aria-live="polite" class="mut" id="accountError">
+</p>
+</form>
+<div id="dd" style="display:none">
+<div class="tg">
+        Dashboard
+       </div>
+<h2 id="wl">
+        Welcome
+       </h2>
+<div class="dash">
+<div>
+<b>
+          Your preorders
+         </b>
+<div class="mut" id="po">
+</div>
+</div>
+<div>
+<b>
+          Order status
+         </b>
+<div aria-live="polite" class="order-status-panel" id="orderStatusPanel">
+<p class="mut">
+           Your order progress will appear here after checkout.
+          </p>
+</div>
+</div>
+<div>
+<b>
+          Wishlist
+         </b>
+<div class="mut" id="ws">
+</div>
+</div>
+<div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+<b>Recently viewed</b>
+<button class="ib" data-recent-clear="" type="button">Clear all</button>
+</div>
+<div class="mut" id="rv"></div>
+</div>
+<div>
+<b>
+          Account
+         </b>
+<p class="mut">
+          Your orders, wishlist and recently viewed items are saved in this browser.
+         </p>
+<button class="btn o" id="lo">
+          Sign out
+         </button>
+<div class="account-settings" style="margin-top:24px;padding:20px;border:1px solid var(--line);border-radius:16px">
+<h3>Account settings</h3>
+<p class="mut">Update your profile details. Changes are saved in this browser and reflected in your account and future orders.</p>
+<form class="fm" id="accountSettings" style="max-width:520px">
+<label>Display name<input id="settingName" maxlength="80" name="name" required=""/></label>
+<label>Email address<input id="settingEmail" name="email" required="" type="email"/></label>
+<label>Current password<input autocomplete="current-password" name="currentPassword" required="" type="password"/></label>
+<label>New password <small class="mut">Leave blank to keep the current password</small><input autocomplete="new-password" minlength="6" name="newPassword" type="password"/></label>
+<button class="btn" type="submit">Save account changes</button><p aria-live="polite" class="mut" id="settingsMessage"></p>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pg" id="pay">
+<div class="w" style="padding:50px 24px">
+<div class="tg">
+       Checkout
+      </div>
+<h2>
+       Payment
+      </h2>
+<p class="mut">
+       Mock payment: nothing is charged. Test success with <b>4242 4242 4242 4242</b>; test a decline with <b>4000000000000002</b>. Use any future expiry and any 3-digit code.
+      </p>
+<div class="pys" id="pys">
+</div>
+<form autocomplete="off" class="fm" id="pf" style="max-width:420px">
+<input autocomplete="name" maxlength="80" name="name" placeholder="Full name" required="">
+<input autocomplete="email" maxlength="120" name="email" placeholder="Email" required="" type="email">
+<input autocomplete="street-address" maxlength="160" name="addr" placeholder="Shipping address" required="">
+<label class="mut" style="display:flex;align-items:center;gap:9px;font-size:13px">
+<input name="privateName" style="width:auto" type="checkbox">
+        Keep my name private in order activity
+       </input></label>
+<input autocomplete="off" inputmode="numeric" maxlength="23" name="card" placeholder="Card number" required=""/>
+<input autocomplete="off" maxlength="5" name="exp" placeholder="MM/YY" required="">
+<input autocomplete="off" inputmode="numeric" maxlength="4" name="cvc" placeholder="CVC" required=""/>
+<button class="btn">
+         Pay now (mock)
+        </button>
+</input>
+</input></input></input></form>
+</div>
+</div>
+</main>
+<footer>
+<div class="w">
+<div>
+<div class="logo">
+<i>
+        S×
+       </i>
+<span class="wordmark">
+        Stridewell
+       </span>
+</div>
+<p class="mut">
+       Walk like you mean it. A demo brand — nothing is real.
+      </p>
+</div>
+<div>
+<b>
+       Shop
+      </b>
+<a data-go="shoes">
+       Footwear
+      </a>
+<a data-go="wear">
+       Listings
+      </a>
+<a data-go="home">
+       Preorder
+      </a>
+</div>
+<div>
+<b>
+       Studio
+      </b>
+<a data-go="about">
+       About
+      </a>
+<a data-go="guide">
+       How to use the site
+      </a>
+<a data-go="dash">
+       Account
+      </a>
+<a data-go="admin">
+       Admin demo
+      </a>
+</div>
+<div>
+<b>
+       Follow
+      </b>
+<a class="so" href="#">
+       Instagram
+      </a>
+<a class="so" href="#">
+       TikTok
+      </a>
+<a class="so" href="#">
+       X
+      </a>
+<a class="so" href="#">
+       YouTube
+      </a>
+</div>
+</div>
+</footer>
+</div>
+<div class="sh" id="sh">
+</div>
+<aside class="dr">
+<div style="display:flex;justify-content:space-between">
+<h2 style="margin:0;font-size:24px">
+     Your bag
+    </h2>
+<button class="ib" id="cx">
+     Close
+    </button>
+</div>
+<div id="ci" style="flex:1;overflow:auto">
+</div>
+<div class="bar">
+<i id="fb">
+</i>
+</div>
+<div class="mut" id="fs">
+</div>
+<div style="display:flex;gap:6px">
+<input id="pr" placeholder="Promo code" style="flex:1;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card)"/>
+<button class="ib" id="pa">
+     Apply
+    </button>
+</div>
+<div style="display:flex;justify-content:space-between;margin:12px 0">
+<b>
+     Subtotal
+    </b>
+<b id="sb">
+</b>
+</div>
+<button class="btn" id="co">
+    Checkout (demo)
+   </button>
+</aside>
+<div class="md" id="md">
+<div class="mb">
+<button class="x" id="mx">
+     ✕
+    </button>
+<div class="im" id="mi">
+</div>
+<div class="tx">
+<div class="tg" id="mt">
+</div>
+<h2 id="mn">
+</h2>
+<h3 id="mp">
+</h3>
+<p class="mut" id="md2">
+</p>
+<div class="mut" id="mr">
+</div>
+<b>
+      Size
+     </b>
+<div class="sz" id="sz">
+</div>
+<div class="sf" id="sf">
+<input id="sfi" max="32" min="22" placeholder="Foot length (cm)" step=".1" type="number"/>
+<button class="ib" id="sfb">
+       Find my size
+      </button>
+</div>
+<button class="btn" id="ma" style="width:100%">
+      Add to bag
+     </button>
+<button class="ib" id="msh" style="width:100%;margin-top:8px">
+      Copy link
+     </button>
+<p class="mut" style="font-size:12px">
+      Drag to tilt the product · right-click for the reverse side · double-click to spin
+     </p>
+</div>
+</div>
+</div>
+<div id="toast">
+</div>
+<div class="md" id="ok">
+<div class="mb" style="display:block;padding:36px;max-width:420px;text-align:center">
+<h2>
+     Preorder confirmed
+    </h2>
+<p class="mut" id="okt">
+</p>
+<button class="btn" data-go="dash">
+     Track order
+    </button>
+<button class="btn o" id="okc">
+     Keep shopping
+    </button>
+</div>
+</div>
+<button aria-label="Back to top" class="ib" id="up">
+   ↑
+  </button>
+<div id="cur">
+   Grab &amp; drop
+  </div>
+<div id="live">
+</div>
+<div class="md" id="sr">
+<div class="mb" style="display:block;padding:24px;max-width:560px">
+<input id="si" placeholder="Search shoes &amp; apparel…  (press /)" style="width:100%;padding:16px;border-radius:12px;border:1px solid var(--line);background:var(--card)"/>
+<div id="sl" style="margin-top:12px">
+</div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+</script>
+
+<!-- Product photos (embedded cut-outs) -->
+
+<!-- App code -->
+
+
+
+
+
+<script defer="True" src="js/00-core/animation-fallback.js"></script><script defer="True" src="js/10-storefront/catalog-and-ui.js"></script><script defer="True" src="js/20-commerce/store-state.js"></script><script defer="True" src="js/40-admin/orders-and-checkout.js"></script><script defer="True" src="js/30-guide/feature-checklist.js"></script></body>
+</html>
+

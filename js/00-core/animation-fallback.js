@@ -1,0 +1,8 @@
+/* Stridewell | animation-fallback.js */
+// Offline fallback: preserve storefront interactions when the animation CDN cannot load.
+  if (!window.gsap) {
+    const targets = t => typeof t === "string" ? [...document.querySelectorAll(t)] : typeof t === "function" ? [t()] : Array.isArray(t) ? t : [t];
+    const apply = (t, vars={}) => { targets(t).filter(Boolean).forEach(el => { Object.entries(vars).forEach(([k,v]) => { if (["duration","ease","delay","stagger","overwrite","scrollTrigger","transformPerspective","onUpdate","onComplete","immediateRender","transformOrigin"].includes(k) || typeof v === "function") return; if (k === "x" || k === "y") el.style.translate = `${k === "x" ? v : 0}px ${k === "y" ? v : 0}px`; else if (k === "rotation" || k === "rotationX" || k === "rotationY") el.style.transform += ` ${k.replace("rotation","rotate").toLowerCase()}(${v}deg)`; else if (k === "scale") el.style.scale = v; else if (k in el.style) el.style[k] = typeof v === "number" && !["opacity","zIndex","fontWeight"].includes(k) ? v + "px" : v; }); if (vars.onUpdate) vars.onUpdate(); }); if (vars.onComplete) vars.onComplete(); };
+    const chain = { to(t,v){apply(t,v);return this}, from(t,v){apply(t,v);return this}, fromTo(t,a,b){apply(t,b);return this}, set(t,v){apply(t,v);return this}, call(fn){if(fn)fn();return this}, add(){return this}, kill(){return this} };
+    window.gsap = { to:apply, from:(t,v)=>apply(t,v), fromTo:(t,a,b)=>apply(t,b), set:apply, timeline:(opts={})=>{const tl=Object.create(chain);queueMicrotask(()=>opts.onComplete&&opts.onComplete());return tl}, getProperty:(t,k)=>{const el=targets(t)[0];return el ? (parseFloat(getComputedStyle(el).getPropertyValue(k))||0):0}, registerPlugin:()=>{}, utils:{random:(a,b)=>Math.random()*(b-a)+a} };
+  }
