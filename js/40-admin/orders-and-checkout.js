@@ -27,9 +27,9 @@
         ALL.forEach(p => { const meta = CFG.products?.[p.id] || {}; p.n = meta.n || p.n; p.img = meta.img || p.img; p.p = CFG.price[p.id] != null ? +CFG.price[p.id] : BASEP[p.id]; });
         $("#hg").innerHTML = ES.filter(p => !CFG.off[p.id]).map(card).join("");
         $("#hp").textContent = fmt(HS[hi].p);
-        const pg = $(".pg.on");
-        if (pg && pg.id == "shoes") list("shoe");
-        if (pg && pg.id == "wear") list("wear");
+        // Refresh both catalogue sections even when the admin page is active.
+        list("shoe");
+        list("wear");
         renderInsider();
         draw();
         tick();
@@ -37,10 +37,32 @@
     }
 
     function renderInsider() {
-        const a = [...CFG.posts].sort((x, y) => (y.pin ? 1 : 0) - (x.pin ? 1 : 0) || y.d - x.d);
-        $("#ins").innerHTML = a.length
-            ? a.map(p => `<article class="fc insider-post-expanded"><div class="mut">${p.pin ? "Pinned · " : ""}${new Date(p.d).toLocaleDateString()}</div><h3>${esc(p.t)}</h3><p style="white-space:pre-wrap;overflow-wrap:anywhere">${esc(p.b)}</p></article>`).join("")
-            : '<p class="mut">Nothing new yet. Check back soon.</p>';
+        const host = $("#ins");
+        if (!host) return;
+        const posts = Array.isArray(CFG.posts) ? CFG.posts : [];
+        const sorted = [...posts].sort((x, y) => Number(!!y.pin) - Number(!!x.pin) || (+y.d || 0) - (+x.d || 0));
+        const cards = sorted.map(post => {
+            const article = document.createElement("article");
+            article.className = "fc insider-post-expanded";
+            const date = document.createElement("div");
+            date.className = "mut";
+            date.textContent = `${post.pin ? "Pinned · " : ""}${post.d ? new Date(post.d).toLocaleDateString() : ""}`;
+            const title = document.createElement("h3");
+            title.textContent = String(post.t ?? "");
+            const body = document.createElement("p");
+            body.style.whiteSpace = "pre-wrap";
+            body.style.overflowWrap = "anywhere";
+            body.textContent = String(post.b ?? "");
+            article.append(date, title, body);
+            return article;
+        });
+        if (cards.length) host.replaceChildren(...cards);
+        else {
+            const empty = document.createElement("p");
+            empty.className = "mut";
+            empty.textContent = "Nothing new yet. Check back soon.";
+            host.replaceChildren(empty);
+        }
     }
 
     // Local-only demo storage. This is deliberately not secure authentication:
@@ -91,13 +113,13 @@
     window.addEventListener("storage", e => {
         if (["sw_orders", "sw_subs", "sw_cfg"].includes(e.key)) {
             refreshLocalData();
-            if (IS_ADMIN && $("#admin")) renderAdmin();
+            applyCfg();
             if (typeof dash === "function" && user) dash();
         }
     });
     window.addEventListener("stridewell:data-updated", () => {
         refreshLocalData();
-        if (IS_ADMIN && $("#admin")) renderAdmin();
+        applyCfg();
         if (typeof dash === "function" && user) dash();
         if (typeof tick === "function") tick();
     });
