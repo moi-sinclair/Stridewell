@@ -146,11 +146,10 @@
         $$(".lk a").forEach(a => a.classList.remove("on"));
         if (!$("#admin")) {
             const d = document.createElement("div");
-            d.className = "pg on";
+            d.className = "admin-page";
             d.id = "admin";
             $("main").appendChild(d);
         }
-        $("#admin").classList.add("on");
         scrollTo(0, 0);
         renderAdmin();
     }
@@ -210,7 +209,7 @@
         const keep = document.activeElement?.id;
         el.innerHTML = `<div class="w" style="padding:40px 24px"><div class="tg">Admin · local demo <span class="role-badge">ADMIN</span></div><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><h2 style="margin:6px 0 20px">Drop 01 control room</h2><button class="ib" data-logout>Sign out</button></div><p class="mut">Local demo storage only: orders from this same browser profile and exact site file appear here. Different devices, browsers, or separately opened copies do not share data. <button class="ib" type="button" data-a="refresh">Refresh orders</button></p>
             <div class="ak"><div><b>${ORD.length}</b><span>Orders</span></div><div><b>${paid.length}</b><span>Paid or in production</span></div><div><b>${money(rev)}</b><span>Revenue</span></div><div><b>${SUBS.length}</b><span>Subscribers</span></div><div><b>${activeAdmins}</b><span>Active admin browsers</span></div></div>
-            <div class="fl ad-tabs">${tabs.map(t => `<button class="${t == tab ? "on" : ""}" data-tab="${t}">${t[0].toUpperCase() + t.slice(1)}</button>`).join("")}</div>${body}</div>`;
+            <div class="fl admin-tabs">${tabs.map(t => `<button class="${t == tab ? "on" : ""}" data-tab="${t}">${t[0].toUpperCase() + t.slice(1)}</button>`).join("")}</div>${body}</div>`;
         if (keep && el.querySelector("#" + keep)) { const k = el.querySelector("#" + keep); k.focus(); try { k.setSelectionRange(k.value.length, k.value.length); } catch (e) { } }
     }
 

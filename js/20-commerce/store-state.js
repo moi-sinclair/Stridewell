@@ -178,8 +178,9 @@ let cr = (()=>{try{const c=localStorage.getItem("sw_currency");return ["USD","EU
     tick();
     function go(h) {
         h = ["home", "shoes", "wear", "about", "guide", "dash", "pay"].includes(h) ? h : "home";
-        const prev = $(".pg.on"), enter = () => {
-            $$(".pg").forEach(p => p.classList.toggle("on", p.id == h));
+        const prev = $(".pg.on:not(#admin)"), enter = () => {
+    if ($("#admin")) { if (prev) gsap.set(prev, { clearProps: "all" }); return; }
+    $$(".pg:not(#admin)").forEach(p => p.classList.toggle("on", p.id == h));
             $$(".lk a").forEach(a => { const active = a.dataset.go == h; a.classList.toggle("on", active); if (active) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
             if (prev)
                 gsap.set(prev, { clearProps: "all" });
