@@ -6,7 +6,7 @@ A responsive, front-end footwear storefront demo built as a learning project. St
 
 ## Preview
 
-The repository is designed to run as a static website. Open the GitHub Pages deployment (when enabled) or run it locally using the steps below.
+The repository is designed to run as a static website. Open the GitHub Pages deployment or run it locally using the steps below.
 
 ## Notice
 
